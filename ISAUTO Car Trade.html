@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ISAUTO Car Trade — автосалон в Одесі</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--panel:#0c0c0c;--line:#2a0a10;--red:#ff1f3d;--red2:#b30018;--text:#f2f2f2;--mute:#9b9ba4;
+--glow:0 0 10px rgba(255,31,61,.75),0 0 30px rgba(255,31,61,.4);--head:'Michroma','Eurostile','Arial Black',sans-serif;--body:'Manrope','Segoe UI',Arial,sans-serif;
+color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:90px;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--body);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--head);font-weight:400;margin:0;letter-spacing:.02em}
+h2{font-size:clamp(1.5rem,3.4vw,2.4rem);text-shadow:var(--glow);margin-bottom:12px}
+section{padding:96px 0}
+.lead{color:var(--mute);max-width:60ch;margin:0 0 40px}
+/* nav */
+header{position:sticky;top:0;z-index:20;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--red2);box-shadow:0 1px 24px rgba(255,31,61,.25)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:rgba(0,0,0,.82);backdrop-filter:blur(12px)}
+nav{display:flex;align-items:center;gap:28px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--head);font-size:1.05rem}
+.brand svg{width:38px;height:34px;filter:drop-shadow(0 0 6px rgba(255,31,61,.8))}
+.links{display:flex;gap:6px;margin-left:auto}
+.links a{padding:8px 14px;border-radius:8px;font-size:.92rem;color:#d8d8de;transition:.2s}
+.links a:hover{color:#fff;text-shadow:var(--glow);background:rgba(255,31,61,.1)}
+.soc{display:flex;gap:8px}
+.soc a{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--red2);border-radius:10px;transition:.2s}
+.soc a:hover{background:var(--red);box-shadow:var(--glow);transform:translateY(-2px)}
+.soc svg{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--red2);color:#fff;width:42px;height:42px;border-radius:10px;font-size:1.3rem;cursor:pointer}
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 72px);display:grid;align-items:center;padding:60px 0 120px;overflow:hidden;text-align:center}
+.hero::before{content:"";position:absolute;left:-50%;right:-50%;bottom:-10%;height:62%;background:
+linear-gradient(rgba(255,31,61,.55) 1px,transparent 1px) 0 0/100% 56px,
+linear-gradient(90deg,rgba(255,31,61,.45) 1px,transparent 1px) 0 0/72px 100%;
+transform:perspective(420px) rotateX(62deg);transform-origin:bottom;mask-image:linear-gradient(to top,#000 10%,transparent 85%);-webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%)}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 50% 38%,rgba(255,31,61,.22),transparent 70%)}
+.hero .wrap{position:relative;z-index:2}
+.mark{width:clamp(110px,18vw,170px);margin:0 auto 18px;filter:drop-shadow(0 0 18px rgba(255,31,61,.9))}
+.mark svg{width:100%;display:block}
+.word{font-family:var(--head);font-size:clamp(2.6rem,10vw,6.6rem);line-height:1;color:#fff;text-shadow:0 0 6px #fff,0 0 22px var(--red),0 0 60px var(--red);animation:flick 1.6s .2s both}
+@keyframes flick{0%,18%,22%,60%{opacity:.15}20%,24%,62%,100%{opacity:1}30%{opacity:.4}34%{opacity:1}40%{opacity:.2}46%{opacity:1}}
+.tag{font-family:var(--head);letter-spacing:.7em;color:var(--red);font-size:clamp(.7rem,1.8vw,1rem);margin:14px 0 26px;text-shadow:var(--glow)}
+.hero p.sub{max-width:52ch;margin:0 auto 34px;color:#c9c9d0;font-size:1.1rem}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 28px;border-radius:12px;font-weight:700;border:1px solid var(--red);transition:.25s;cursor:pointer;font-family:var(--body);font-size:1rem;color:#fff;background:transparent}
+.btn.fill{background:var(--red);box-shadow:var(--glow)}
+.btn:hover{box-shadow:var(--glow);transform:translateY(-2px)}
+.btn.fill:hover{background:#ff3b56}
+/* catalog */
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.chip{padding:9px 20px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:#d8d8de;cursor:pointer;font:600 .9rem var(--body);transition:.2s}
+.chip:hover{border-color:var(--red)}
+.chip[aria-pressed=true]{background:var(--red);color:#fff;border-color:var(--red);box-shadow:var(--glow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+.car{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.3s}
+.car:hover{border-color:var(--red);box-shadow:0 0 0 1px var(--red),0 0 36px rgba(255,31,61,.3)}
+.car[hidden]{display:none}
+.pic{height:170px;display:grid;place-items:center;background:radial-gradient(circle at 50% 100%,rgba(255,31,61,.28),transparent 70%),#050505;border-bottom:1px solid var(--line)}
+.pic svg{width:72%;fill:none;stroke:var(--red);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(255,31,61,.8))}
+.cb{padding:20px 22px 24px}
+.cb h3{font-size:1.02rem;margin-bottom:6px}
+.cb .meta{color:var(--mute);font-size:.9rem;margin:0 0 16px}
+.cb .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.price{font-weight:700;color:#fff}
+.mini{padding:9px 16px;font-size:.88rem;border-radius:10px}
+.note{margin-top:26px;color:var(--mute);font-size:.88rem}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.s{padding:28px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,#120508,#050505 60%)}
+.s svg{width:34px;height:34px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(255,31,61,.8));margin-bottom:16px}
+.s h3{font-size:.98rem;margin-bottom:10px}
+.s p{margin:0;color:var(--mute);font-size:.95rem}
+/* about */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.about p{color:#c9c9d0;margin:0 0 16px}
+.show{aspect-ratio:4/3;border:1px solid var(--red2);border-radius:20px;position:relative;overflow:hidden;background:#050505;box-shadow:0 0 40px rgba(255,31,61,.2)}
+.show svg{position:absolute;inset:0;width:100%;height:100%}
+.show span{position:absolute;left:18px;bottom:14px;font-family:var(--head);font-size:.8rem;color:var(--red);text-shadow:var(--glow)}
+/* contacts */
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.box{padding:30px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.box h3{font-size:1rem;margin-bottom:14px}
+.box p{margin:0 0 18px;color:#c9c9d0}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.big a{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--red2);border-radius:12px;font-weight:600;transition:.2s}
+.big a:hover{background:rgba(255,31,61,.14);box-shadow:var(--glow)}
+.big svg{width:22px;height:22px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+footer{border-top:1px solid var(--red2);padding:30px 0;text-align:center;color:var(--mute);font-size:.88rem}
+@media(max-width:900px){
+ .links,.soc{display:none}.burger{display:block}
+ nav.open{flex-wrap:wrap;height:auto;padding:14px 0}
+ nav.open .links,nav.open .soc{display:flex;width:100%;flex-direction:row;flex-wrap:wrap;margin:0}
+ nav.open .links{order:3}nav.open .soc{order:4;padding-bottom:6px}
+ .about,.ct{grid-template-columns:1fr}.big{grid-template-columns:1fr}
+ section{padding:70px 0}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="logo" viewBox="0 0 100 90"><g fill="#ff1f3d"><polygon points="32,2 45,2 13,86 0,86"/><polygon points="55,26 66,26 40,86 29,86"/></g><polygon points="76,28 98,84 52,84" fill="none" stroke="#ff1f3d" stroke-width="10" stroke-linejoin="round"/><path d="M62 76h20" stroke="#ff1f3d" stroke-width="6" stroke-linecap="round"/></symbol>
+<symbol id="car" viewBox="0 0 200 80"><path d="M10 58h14M60 58h80M176 58h14M10 58V46c0-6 4-8 10-10l32-6 24-18c3-3 6-4 10-4h36c5 0 9 2 12 5l18 17 24 6c6 2 8 5 8 10v14"/><path d="M66 30l20-14h38l22 14"/><circle cx="42" cy="58" r="16"/><circle cx="158" cy="58" r="16"/></symbol>
+<symbol id="ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></symbol>
+<symbol id="tt" viewBox="0 0 24 24"><path d="M15 3v11.2a4.2 4.2 0 1 1-4.2-4.2M15 3c.4 2.4 2.2 4.2 5 4.5"/></symbol>
+<symbol id="tg" viewBox="0 0 24 24"><path d="M21 4 3 11l6 2.2L11 20l3.2-4 4.8 3.6z"/><path d="m9 13.2 9-6.6"/></symbol>
+<symbol id="yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="m10 9.5 5 2.5-5 2.5z"/></symbol>
+</svg>
+
+<header>
+<div class="wrap"><nav id="nav">
+<a class="brand" href="#top" aria-label="ISAUTO — на головну"><svg><use href="#logo"/></svg>ISAUTO</a>
+<div class="links">
+<a href="#top">Головна</a><a href="#catalog">Каталог</a><a href="#services">Послуги</a><a href="#about">Про нас</a><a href="#contacts">Контакти</a>
+</div>
+<div class="soc">
+<a href="https://www.instagram.com/isauto_trade/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ig"/></svg></a>
+<a href="https://www.tiktok.com/@isauto01" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#tt"/></svg></a>
+<a href="https://t.me/isAuto99" target="_blank" rel="noopener" aria-label="Telegram"><svg><use href="#tg"/></svg></a>
+<a href="https://www.youtube.com/@isauto1" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#yt"/></svg></a>
+</div>
+<button class="burger" id="burger" aria-label="Меню" aria-expanded="false">☰</button>
+</nav></div>
+</header>
+
+<main id="top">
+<div class="hero">
+<div class="wrap">
+<div class="mark"><svg viewBox="0 0 100 90"><use href="#logo"/></svg></div>
+<h1 class="word">ISAUTO</h1>
+<div class="tag">CAR TRADE</div>
+<p class="sub">Автосалон в Одесі. Шоурум із великим вибором авто, серед яких найбільше BMW. Приїжджайте подивитись наживо.</p>
+<div class="btns"><a class="btn fill" href="#catalog">Дивитись авто</a><a class="btn" href="#contacts">Як нас знайти</a></div>
+</div>
+</div>
+
+<section id="catalog"><div class="wrap">
+<h2>Каталог авто</h2>
+<p class="lead">У шоурумі завжди є що вибрати. Актуальні авто, ціни та фото публікуємо в Instagram і Telegram.</p>
+<div class="chips" role="group" aria-label="Фільтр за маркою">
+<button class="chip" aria-pressed="true" data-f="all">Усі</button>
+<button class="chip" aria-pressed="false" data-f="bmw">BMW</button>
+<button class="chip" aria-pressed="false" data-f="other">Інші марки</button>
+</div>
+<div class="grid" id="grid"></div>
+<p class="note">Це приклади карток. Реальні авто, фото та ціни додаються окремо.</p>
+</div></section>
+
+<section id="services"><div class="wrap">
+<h2>Послуги</h2>
+<p class="lead">Допоможемо від вибору авто до виїзду із салону.</p>
+<div class="svc">
+<div class="s"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><h3>Підбір авто</h3><p>Розкажіть про бюджет і побажання, а ми запропонуємо варіанти з наявності.</p></div>
+<div class="s"><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg><h3>Trade-in</h3><p>Обміняйте ваше авто на інше з доплатою. Оцінимо швидко та чесно.</p></div>
+<div class="s"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg><h3>Викуп авто</h3><p>Купуємо автомобілі за ринковою ціною та оформлюємо все самі.</p></div>
+<div class="s"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg><h3>Розстрочка та кредит</h3><p>Підберемо зручні умови оплати під ваші можливості.</p></div>
+</div></div></section>
+
+<section id="about"><div class="wrap about">
+<div>
+<h2>Про нас</h2>
+<p>ISAUTO Car Trade — це шоурум, у якому багато авто в одному місці. Тут можна оглянути машини наживо, сісти за кермо та порівняти кілька варіантів за один візит.</p>
+<p>Особливо багато в нас BMW, але в наявності є й інші марки. Не знайшли своє авто? Напишіть нам, і ми спробуємо його підібрати.</p>
+<a class="btn fill" href="#contacts">Записатися на огляд</a>
+</div>
+<div class="show"><svg viewBox="0 0 400 300" fill="none" stroke="#ff1f3d" stroke-width="2" opacity=".9"><g stroke-opacity=".35"><path d="M0 220h400M0 250h400M0 280h400M200 190v110M100 190l-60 110M300 190l60 110"/></g><use href="#car" x="60" y="110" width="280" height="112" stroke-width="2.4" style="filter:drop-shadow(0 0 8px #ff1f3d)"/></svg><span>SHOWROOM</span></div>
+</div></section>
+
+<section id="contacts"><div class="wrap">
+<h2>Контакти</h2>
+<p class="lead">Чекаємо у шоурумі. Напишіть нам у зручному месенджері або приїжджайте без попередження.</p>
+<div class="ct">
+<div class="box">
+<h3>Адреса</h3>
+<p>м. Одеса, проспект Лесі Українки 19а,<br>ЖК «Чотири Сезони»</p>
+<a class="btn fill" href="https://www.google.com/maps/search/?api=1&query=%D0%9E%D0%B4%D0%B5%D1%81%D0%B0%2C+%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82+%D0%9B%D0%B5%D1%81%D1%96+%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%BA%D0%B8+19%D0%B0" target="_blank" rel="noopener">Відкрити на карті</a>
+</div>
+<div class="box">
+<h3>Ми в соцмережах</h3>
+<div class="big">
+<a href="https://www.instagram.com/isauto_trade/" target="_blank" rel="noopener"><svg><use href="#ig"/></svg>Instagram</a>
+<a href="https://t.me/isAuto99" target="_blank" rel="noopener"><svg><use href="#tg"/></svg>Telegram</a>
+<a href="https://www.tiktok.com/@isauto01" target="_blank" rel="noopener"><svg><use href="#tt"/></svg>TikTok</a>
+<a href="https://www.youtube.com/@isauto1" target="_blank" rel="noopener"><svg><use href="#yt"/></svg>YouTube</a>
+</div>
+</div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">© 2026 ISAUTO Car Trade. Одеса, Україна.</div></footer>
+
+<script>
+(function(){
+var cars=[["BMW 5 Series","Седан","bmw"],["BMW X5","Кросовер","bmw"],["BMW 3 Series","Седан","bmw"],["BMW X3","Кросовер","bmw"],["Mercedes-Benz E-Class","Седан","other"],["Audi A6","Седан","other"]];
+var g=document.getElementById('grid');
+cars.forEach(function(c){
+ var d=document.createElement('article');d.className='car';d.dataset.b=c[2];
+ d.innerHTML='<div class="pic"><svg viewBox="0 0 200 80"><use href="#car"/></svg></div><div class="cb"><h3>'+c[0]+'</h3><p class="meta">'+c[1]+'</p><div class="row"><span class="price">Ціна за запитом</span><a class="btn mini" href="https://t.me/isAuto99" target="_blank" rel="noopener">Дізнатись</a></div></div>';
+ g.appendChild(d);
+});
+document.querySelectorAll('.chip').forEach(function(b){
+ b.addEventListener('click',function(){
+  document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+  var f=b.dataset.f;
+  document.querySelectorAll('.car').forEach(function(c){c.hidden=!(f==='all'||c.dataset.b===f)});
+ });
+});
+var nav=document.getElementById('nav'),bg=document.getElementById('burger');
+bg.addEventListener('click',function(){var o=nav.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
+document.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open')})});
+})();
+</script>
+</body>
+</html>
